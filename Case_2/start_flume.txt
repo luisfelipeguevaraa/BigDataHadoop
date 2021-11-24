@@ -1,0 +1,3 @@
+# go to ingestion
+cd /root/dsacd/Ingestion
+flume-ng agent -n agent -c conf -f myagent.conf

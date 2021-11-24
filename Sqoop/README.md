@@ -22,3 +22,21 @@ hadoop fs -cat /user/root/sqoop_import/*
 ```mysql
 select * from sqoop_export;
 ```
+
+## DISTCP
+Tool used for copy distributer this is inter/intra-cluster, for example for a copy from "sqoop_import" to sqoop_import:distcp
+
+```bash
+hadoop distcp hdfs://sandbox.hortonworks.com:8020/user/root/sqoop_import hdfs://sandbox.hortonworks.com:8020/user/root/sqoop_import_distcp
+```
+
+to check this
+```bash
+hadoop fs -cat /user/root/sqoop_import_distcp/*
+```
+
+other use is simple copy, but distcp will give better performance
+```bash
+hadoop fs -cp /user/root/sqoop_import /user/root/sqoop_import_cp
+hadoop fs -ls /user/root/sqoop_import_cp 
+```
